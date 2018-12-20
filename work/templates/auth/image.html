@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+
+{{ super() }}
+
+{%block content %}
+
+{% endblock %}
+
+{% block file %}
+
+<h4 class="page-header">
+        图像水印
+        <small>
+            上传你需要嵌入水印的图像文件并提交水印内容来开始水印嵌入。
+        </small>
+     <form action="/auth/image" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                {{ form.watermark.label }}
+                {{ form.watermark(class_="form-control") }}
+                {{ form.file.label }}
+                {{ form.file(class_="form-control") }}
+            </div>
+    
+            <p>{{ form.csrf_token }}</p>
+    
+            <input class="btn btn-primary" type="submit" value="嵌入水印">
+        </form>
+    </h4>
+
+{% endblock %}

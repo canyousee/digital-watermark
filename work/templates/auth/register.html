@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{{ super() }}
+
+{% block file %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<form action="/auth/register" method="post" >
+    <p>{{ form.csrf_token }}</p>
+    <p><b>email</b></p>
+    <p style="color:rgb(8, 8, 8)">{{ form.email(class_="form-control",placeholder='yourname@email.com') }}</p>
+    <p><b>password</b></p>
+    <p style="color:rgb(8, 8, 8)">{{ form.password(class_="form-control") }}</p>
+    <p><b>username</b></p>
+    <p style="color:rgb(8, 8, 8)">{{ form.username(class_="form-control") }}</p>
+    <p style="color:rgb(8, 8, 8)"><input type="submit" value="register"></p>
+</form>
+
+
+
+{% endblock %}

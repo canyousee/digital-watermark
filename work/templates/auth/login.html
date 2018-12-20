@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+
+{{ super() }}
+
+{% block content %}
+<form action="/auth/login" method="post">
+    <p>{{ form.csrf_token }}</p>
+    <p><b>email</b></p>
+    <p style="color:rgb(8, 8, 8)">{{ form.email(placeholder='yourname@email.com') }}</p>
+    <p><b>password</b></p>
+    <p style="color:rgb(8, 8, 8)">{{ form.password }}</p>
+    <p ><b>username</b></p>
+    <p style="color:rgb(8, 8, 8)">{{ form.username }}</p>
+    <p style="color:rgb(8, 8, 8)"><input type="submit" value="login"></p>
+</form>
+
+
+
+{% endblock %}
